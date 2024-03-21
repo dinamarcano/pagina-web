@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Iniciar Sesión</title>
+<style>
+  body {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    background-color: #222;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    max-width: 25rem;
+    margin: 6.25rem auto;
+    background-color: #000;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+  }
+
+  h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+    color: #fff;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="submit"] {
+    width: calc(100% - 2rem);
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 0.0625rem solid #fff;
+    border-radius: 0.5rem;
+    font-size: 1.2rem;
+    background-color: #111;
+    color: #fff;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+
+  .error {
+    color: red;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    display: none;
+  }
+
+  .registro {
+    display: none;
+  }
+
+  .registro-link, .login-link {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bold;
+    margin-top: 1rem;
+    display: block;
+    text-align: center;
+    font-size: 1.2rem;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Iniciar Sesión</h2>
+  <form id="loginForm">
+    <input type="text" name="username" placeholder="Usuario" required>
+    <input type="password" name="password" placeholder="Contraseña" required>
+    <input type="submit" value="Iniciar Sesión">
+    <p class="error">Usuario o contraseña incorrectos</p>
+  </form>
+  <a href="#" class="registro-link">¿No tienes cuenta? Regístrate aquí</a>
+</div>
+
+<div class="container registro">
+  <h2>Registro de Sesión</h2>
+  <form id="registroForm">
+    <input type="text" name="username" placeholder="Usuario" required>
+    <input type="password" name="password" placeholder="Contraseña" required>
+    <input type="submit" value="Registrarse">
+    <p class="error">El usuario ya existe</p>
+  </form>
+  <a href="#" class="login-link">¿Ya tienes cuenta? Inicia sesión aquí</a>
+</div>
+
+<script>
+  // Toggle entre el formulario de inicio de sesión y registro de sesión
+  const registroLink = document.querySelector('.registro-link');
+  const inicioSesionLink = document.querySelector('.login-link');
+  const registroForm = document.querySelector('.registro');
+  const inicioSesionForm = document.querySelector('#loginForm');
+  const formularioRegistro = document.querySelector('#registroForm');
+
+  registroLink.addEventListener('click', () => {
+    inicioSesionForm.style.display = 'none';
+    registroForm.style.display = 'block';
+  });
+
+  inicioSesionLink.addEventListener('click', () => {
+    registroForm.style.display = 'none';
+    inicioSesionForm.style.display = 'block';
+  });
+
+  formularioRegistro.addEventListener('submit', (e) => {
+    e.preventDefault();
+    // Aquí puedes realizar cualquier validación que desees antes de la redirección
+   location.href="index.html"
+  });
+</script>
+
+</body>
+</html>
